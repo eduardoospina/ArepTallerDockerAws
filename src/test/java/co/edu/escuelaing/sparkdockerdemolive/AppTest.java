@@ -1,4 +1,4 @@
-package co.edu.escuelaing.arep;
+package co.edu.escuelaing.sparkdockerdemolive;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
