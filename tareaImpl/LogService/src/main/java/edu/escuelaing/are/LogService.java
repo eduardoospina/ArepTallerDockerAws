@@ -9,21 +9,28 @@ import edu.escuelaing.are.ConectarMongoDB.*;
  *
  */
 public class LogService {
+
+
+
     public static void main(String[] args) {
         port(getPort());
 
         ConectarMongoDB conectar = new ConectarMongoDB();
+
+        post("/agregar", (req, res) -> {
+            String nuevaPalabra = req.queryParams("word");
+            System.out.println("comprobar: " + nuevaPalabra);
+            String resultado = conectar.insertarmensaje(nuevaPalabra);
+            System.out.println(resultado);
+            return resultado;
+        });
 
         get("/messages", (req, res) -> {
             res.status(200);
             res.type("application/json");
             return new Gson().toJson(conectar.obtenerlos());
         });
-        post("/messages", (req, res) -> {
-            Mensajes a = new Mensajes(req.body());
-            conectar.insertarmensaje(a);
-            return null;
-        });
+
     }
 
     static int getPort() {

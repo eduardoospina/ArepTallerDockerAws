@@ -32,14 +32,21 @@ public class ConectarMongoDB {
                 messages.add(new Mensajes((String) doc.get("info"), (Date) doc.get("date")));
             }
         }
+        System.out.println(messages);
         return messages;
     }
 
-    public void insertarmensaje(Mensajes message){
-        Document document=new Document();
-        document.put("info",message.getMensaje());
-        document.put("date",message.getDate());
-        coleciones.insertOne(document);
+    public String insertarmensaje(String message){
+        String resultado= "";
+        try{
+            Document documento = new Document("data",message).append("date",new Date());
+            coleciones.insertOne(documento);
+            resultado = "$documento";
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return resultado;
     }
 
 }

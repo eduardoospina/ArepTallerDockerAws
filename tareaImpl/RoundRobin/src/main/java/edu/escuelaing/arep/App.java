@@ -11,6 +11,8 @@ public class App
     public static void main( String[] args )
     {
 
+        APP_LB_RoundRobin roundrobin = new APP_LB_RoundRobin();
+
         port(getPort());
         staticFileLocation("/static");
         get("/", (req, res) -> {
@@ -19,14 +21,10 @@ public class App
         });
 
         post("/agregar", (request, response) -> {
-            String nuevapalabra = request.queryParams("")
+            response.type("application/json");
+            return roundrobin.enviarMensaje(request.queryParams("word"));
         });
 
-        get("/resultados", (req, res) -> {
-            res.status(200);
-            res.type("application/json");
-            return null;
-        });
     }
 
     private static int getPort() {
