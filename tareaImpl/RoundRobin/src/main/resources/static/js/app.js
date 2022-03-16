@@ -6,7 +6,7 @@ var app = (function(){
         var mensajeAInsertar = document.getElementById("inputName").value;
         console.info(mensajeAInsertar)
         $.ajax({
-            url: URLE + mensajeAInsertar;
+            url: URLE + mensajeAInsertar,
             type:'POST'
         }).then(function(data){
            alert(response.status)
