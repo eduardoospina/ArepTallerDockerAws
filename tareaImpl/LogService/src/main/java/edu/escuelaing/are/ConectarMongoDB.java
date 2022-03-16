@@ -13,7 +13,7 @@ public class ConectarMongoDB {
 
     public ConectarMongoDB(){
 
-        MongoClient mongodb = new MongoClient(new MongoClientURI("mogodb://localhost:27017"));
+        MongoClient mongodb = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
         MongoDatabase basedeDatos = mongodb.getDatabase("logservices");
         coleciones = basedeDatos.getCollection("logservices");
     }
