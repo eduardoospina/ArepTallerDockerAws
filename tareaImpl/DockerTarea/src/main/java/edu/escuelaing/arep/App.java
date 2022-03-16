@@ -17,13 +17,24 @@ public class App
             res.redirect( "index.html");
             return null;
         });
+
+        post("/agregar", (request, response) -> {
+            response.type("application/json");
+            return null;
+        });
+
+        get("/resultados", (req, res) -> {
+            res.status(200);
+            res.type("application/json");
+            return null;
+        });
     }
 
     private static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
-        return 4567;
+        return 34999;
     }
 
 }
