@@ -1,6 +1,6 @@
 var app = (function(){
 
-    var URLE = "http://localhost:34999/agregar?word=";
+    var URLE = "http://localhost:33870/agregar?word=";
 
     function enviarMensaje(){
         var mensajeAInsertar = document.getElementById("inputName").value;
