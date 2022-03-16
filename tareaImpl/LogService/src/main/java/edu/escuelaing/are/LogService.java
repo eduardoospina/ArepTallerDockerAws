@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import static spark.Spark.*;
 import edu.escuelaing.are.ConectarMongoDB.*;
 
+import java.util.ArrayList;
+
 /**
  * Hello world!
  *
@@ -19,25 +21,19 @@ public class LogService {
 
         post("/agregar", (req, res) -> {
             String nuevaPalabra = req.queryParams("word");
-            System.out.println("comprobar: " + nuevaPalabra);
             String resultado = conectar.insertarmensaje(nuevaPalabra);
-            System.out.println(resultado);
+            ArrayList<Mensajes> impresion = conectar.obtenerlos();
+            System.out.println(impresion);
+
             return resultado;
         });
-
-        get("/messages", (req, res) -> {
-            res.status(200);
-            res.type("application/json");
-            return new Gson().toJson(conectar.obtenerlos());
-        });
-
     }
 
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
-        return 38998;
+        return 6000;
 
     }
 

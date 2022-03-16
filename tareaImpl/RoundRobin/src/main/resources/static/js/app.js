@@ -11,9 +11,10 @@ var app = (function(){
         }).then(function(data){
            alert(response.status)
         });
+
     }
 
     return{
-        enviar:enviarMensaje
+        enviar:enviarMensaje,
     };
 })();
