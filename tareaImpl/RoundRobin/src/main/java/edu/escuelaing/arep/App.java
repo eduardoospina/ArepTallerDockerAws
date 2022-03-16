@@ -19,8 +19,7 @@ public class App
         });
 
         post("/agregar", (request, response) -> {
-            response.type("application/json");
-            return null;
+            String nuevapalabra = request.queryParams("")
         });
 
         get("/resultados", (req, res) -> {

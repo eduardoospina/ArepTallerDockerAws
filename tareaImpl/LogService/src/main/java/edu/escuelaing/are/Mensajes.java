@@ -5,32 +5,25 @@ import java.util.Date;
 
 
 public class Mensajes {
-    private String info;
+    private String mensaje;
     private Date date;
 
     public Mensajes(String info){
-        this.info=info;
+        this.mensaje =info;
         this.date = new Date();
     }
 
     public Mensajes(String info,Date date){
-        this.info=info;
+        this.mensaje =info;
         this.date = date;
     }
 
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
+    public String getMensaje() {
+        return mensaje;
     }
 
     public Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }

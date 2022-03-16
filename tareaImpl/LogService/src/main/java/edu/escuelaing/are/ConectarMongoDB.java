@@ -37,7 +37,7 @@ public class ConectarMongoDB {
 
     public void insertarmensaje(Mensajes message){
         Document document=new Document();
-        document.put("info",message.getInfo());
+        document.put("info",message.getMensaje());
         document.put("date",message.getDate());
         coleciones.insertOne(document);
     }
