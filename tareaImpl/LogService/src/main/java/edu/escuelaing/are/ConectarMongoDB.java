@@ -41,7 +41,7 @@ public class ConectarMongoDB {
         try{
             Document documento = new Document("data",message).append("date",new Date());
             coleciones.insertOne(documento);
-            resultado = "$documento";
+            resultado = documento;
         }
         catch (Exception e){
             e.printStackTrace();
