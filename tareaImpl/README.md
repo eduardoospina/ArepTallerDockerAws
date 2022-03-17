@@ -1,3 +1,15 @@
+# Arquitectura: 
+
+![](https://i.postimg.cc/3JkRmS6V/tarea.png)
+
+La arquitectura propuesta para este ejercicio es como se logra apreciar en la imagen. Se crea una pagina 
+con boostrap que es la que el usuario tiene acceso. a partir de este, y el internet, se conecta a un 
+cliente web y un api rest que implementan un programa round-robin para el control de cargas dentro del programa.
+De estos dos, se generan tres instancias de Logservice en donde se realizara el balanceo. Estos LogService, 
+se conecta a una base de datos de mongodb en donde se ingresaran todos los mensajes que mande el usuario a partir 
+de la pagina web creada y a la que se conecta. estos realizan la insercion y el traido de datos de la base mongodb.
+la idea principal es desarrollarlo dentro de un docker, y este docker se montara dentro del servicio de aws, en una EC2.
+
 # TAREA
 
 Para la tarea usted debe construir una aplicación con la arquitectura propuesta y desplegarla en AWS usando EC2 y Docker.
